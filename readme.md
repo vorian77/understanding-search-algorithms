@@ -17,7 +17,7 @@ The algorithms implemented are:
 
 I'm enrolled in the Udacity.com Intro to Self-Driving Cars Nano Degree program. I completed the Route Planner project, which demonstrates how web mapping apps like Google Maps provide the shortest possible route between different locations. Here is my implementation: https://github.com/vorian77/Udacity-ISDC-Route-Planner
 
-After completing the project, I still didn't completely understand A-Star search, which the project was based on. I decided to play around with the project code by adding different search algorithms.
+After completing the project, I didn't completely understand A-Star search. I decided to play around with the project code by adding different search algorithms.
 
 In the end, I got a great understanding of the mechanics of the search algorithms by comparing and contrasting the code with the results of the experiments, which show their operational and performance characteristics.
 
@@ -42,21 +42,55 @@ Another cool outcome was learning the history of these particular algorithms and
 
 ## Installation and Usage
 
-1. Copy the following files from the repo to a directory: 2. In a terminal, navigate to the directory,
+1. Copy the following files from the repo to a directory. 
+2. In a terminal, navigate to the directory.
 3. Execute `python3 test.py`.
 
 **Execution Results**
+Typical results from an execution of test.py
+![Execution Report](execution_report.png)
 
 
-#### Included Maps With Node IDs
+#### Changing The Experiments
+In the test.py file, change the values of the variables:
+* graph
+* start_node
+* goal_node
+
+```
+def main():
+    """Use this program to compare and contrast four graph searching algorithms."""
+    map_40 = load_map_40()
+    map_10 = load_map_10()
+    map_simple = load_map_simple()
+
+    algorithms = [a_star, uniform_cost, breath_first, depth_first]
+
+    # The loop below will execute the same search using each of the four algorithms.
+    # Experiment with different maps and searches to understand the attributes,
+    # performance characteristics, and code of each algorithm.
+    graph = map_40
+    start_node = 5
+    goal_node = 34
+```
+
+
+#### Maps With Node IDs
 **Map 1: map_40 (40 nodes)**
 
+Large map - ideal for seeing the performance differences between the search algorithms
+
+![Map 1](map_40.png)
 
 **Map 2: map_10 (10 nodes)**
 
+Small map with key distances between points - ideal for experimenting with Uniform Cost Search and A-Star Search 
+![Map 2](map_10.png)
 
-**Map 3: map_10 (10 nodes)**
+**Map 3: map_simple (10 nodes)**
 
+Classic Tree structure - ideal for experimenting with Depth-First Search and Breath-First Search 
+![Map - Simple](map_simple.jpg)
 
 
 ## Known Issues
